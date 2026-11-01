@@ -71,9 +71,11 @@ export function About() {
             <p className='text-lg font-medium text-primary-200 uppercase'>
               About me
             </p>
-            <h2 className='text-[34px] leading-12 font-extrabold text-neutral-25 uppercase md:text-5xl md:leading-15'>
+            <h2 className='text-[32px] leading-12 font-extrabold text-neutral-25 uppercase md:text-5xl md:leading-15'>
               Crafting seamless <br className='hidden md:block' />
-              <span className='text-primary-200'>high-performance web</span>{' '}
+              <span className='text-primary-200'>
+                <span className='whitespace-nowrap'>high-performance</span> web
+              </span>{' '}
               <br className='hidden md:block' />
               experiences
             </h2>
