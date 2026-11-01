@@ -1,5 +1,6 @@
 export const SITE = {
   name: 'Thesar Ramadhani',
+  role: 'Frontend Developer',
 } as const;
 
 export const NAV_LINKS = [

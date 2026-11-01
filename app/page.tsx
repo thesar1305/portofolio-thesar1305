@@ -1,9 +1,12 @@
-const SECTIONS = ['home', 'about', 'skills', 'projects', 'faq', 'contact'];
+import { Hero } from '@/components/sections/Hero';
+
+const PLACEHOLDERS = ['about', 'skills', 'projects', 'faq', 'contact'];
 
 export default function Home() {
   return (
     <>
-      {SECTIONS.map((id) => (
+      <Hero />
+      {PLACEHOLDERS.map((id) => (
         <section
           key={id}
           id={id}
