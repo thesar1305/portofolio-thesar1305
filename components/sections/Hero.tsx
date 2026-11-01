@@ -69,20 +69,24 @@ export function Hero() {
         </div>
       </div>
 
-      <div className='relative mt-12 h-[480px] w-full xl:absolute xl:inset-y-0 xl:right-0 xl:mt-0 xl:h-auto xl:w-[658px]'>
-        <Image
-          src='/images/hero-portrait.webp'
-          alt={`Portrait of ${SITE.name}`}
-          fill
-          priority
-          sizes='(min-width: 1280px) 658px, 100vw'
-          className='object-cover object-top grayscale'
-        />
-        <div
-          aria-hidden='true'
-          className='absolute inset-y-0 right-0 w-2/5 bg-primary-200/40 xl:w-78.5'
-        />
-        <RatingCard className='absolute inset-x-4 bottom-4 xl:inset-x-auto xl:top-153 xl:bottom-auto xl:left-46.5 xl:w-79' />
+      <div className='relative mt-12 xl:absolute xl:inset-y-0 xl:right-0 xl:mt-0 xl:w-[658px]'>
+        <div className='relative h-[440px] overflow-hidden xl:h-full'>
+          <div className='absolute inset-0 origin-bottom scale-110 mask-[linear-gradient(to_bottom,black_72%,transparent_100%)] xl:scale-100'>
+            <Image
+              src='/images/hero-portrait.png'
+              alt={`Portrait of ${SITE.name}`}
+              fill
+              priority
+              sizes='(min-width: 1280px) 640px, 90vw'
+              className='object-contain object-bottom grayscale'
+            />
+          </div>
+          <div
+            aria-hidden='true'
+            className='absolute inset-y-0 right-0 w-2/5 bg-primary-200/40 xl:w-78.5'
+          />
+        </div>
+        <RatingCard className='mx-4 mt-6 xl:absolute xl:top-153 xl:left-46.5 xl:mx-0 xl:mt-0 xl:w-79' />
       </div>
     </section>
   );
