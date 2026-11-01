@@ -37,6 +37,11 @@
 
   /* Green Shadow */
   --shadow-green: 0 4px 40px 0 rgb(145 255 2 / 0.4);
+
+  /* Line-height sistem teks Figma */
+  --text-base--line-height: calc(30 / 16);
+  --text-lg--line-height: calc(32 / 18);
+  --text-xl--line-height: calc(34 / 20);
 }
 
 /* 2. Menyambungkan font dan warna semantik shadcn */

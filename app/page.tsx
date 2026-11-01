@@ -1,4 +1,5 @@
 import { Hero } from '@/components/sections/Hero';
+import { Services } from '@/components/sections/Services';
 
 const PLACEHOLDERS = ['about', 'skills', 'projects', 'faq', 'contact'];
 
@@ -6,6 +7,7 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <Services />
       {PLACEHOLDERS.map((id) => (
         <section
           key={id}
