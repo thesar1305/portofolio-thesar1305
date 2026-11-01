@@ -71,7 +71,7 @@ export function Hero() {
 
       <div className='relative mt-12 h-[480px] w-full xl:absolute xl:inset-y-0 xl:right-0 xl:mt-0 xl:h-auto xl:w-[658px]'>
         <Image
-          src='/images/hero-portrait.png'
+          src='/images/hero-portrait.webp'
           alt={`Portrait of ${SITE.name}`}
           fill
           priority
