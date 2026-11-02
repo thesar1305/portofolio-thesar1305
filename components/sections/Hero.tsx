@@ -97,7 +97,7 @@ export function Hero() {
         <Reveal
           immediate
           delay={0.5}
-          className='mx-4 mt-6 xl:absolute xl:top-153 xl:left-46.5 xl:mx-0 xl:mt-0 xl:w-79'
+          className='mx-4 mt-6 md:mx-10 md:w-80 xl:absolute xl:top-153 xl:left-46.5 xl:mx-0 xl:mt-0 xl:w-79'
         >
           <RatingCard />
         </Reveal>

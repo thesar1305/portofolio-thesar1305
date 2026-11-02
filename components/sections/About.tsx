@@ -31,7 +31,7 @@ function Collage({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        'relative h-72 w-[393px] shrink-0 xl:pointer-events-none xl:absolute xl:inset-0 xl:h-auto xl:w-auto',
+        'relative h-72 w-[393px] shrink-0 md:mb-28 md:origin-top md:scale-150 xl:pointer-events-none xl:absolute xl:inset-0 xl:mb-0 xl:h-auto xl:w-auto xl:scale-100',
         className
       )}
     >

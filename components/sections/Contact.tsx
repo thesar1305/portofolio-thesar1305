@@ -84,7 +84,7 @@ export function Contact() {
           direction='left'
           className='flex flex-col gap-6 lg:w-[420px] lg:shrink-0'
         >
-          <div className='relative aspect-square w-full overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-900 mask-[linear-gradient(to_bottom,black_55%,transparent)]'>
+          <div className='relative aspect-square w-full overflow-hidden md:max-w-md lg:max-w-none rounded-2xl border border-neutral-800 bg-neutral-900 mask-[linear-gradient(to_bottom,black_55%,transparent)]'>
             <Image
               src='/images/hero-portrait.png'
               alt={`Portrait of ${SITE.name}`}

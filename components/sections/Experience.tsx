@@ -91,7 +91,7 @@ export function Experience() {
           </h2>
         </Reveal>
 
-        <div className='grid gap-10 lg:grid-cols-2 lg:gap-20'>
+        <div className='grid gap-10 md:grid-cols-2 md:gap-8 lg:gap-20'>
           <Reveal direction='left'>
             <ComparisonColumn
               title='Working with me'
