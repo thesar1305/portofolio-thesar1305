@@ -8,6 +8,8 @@ import {
   SiTailwindcss,
   SiTypescript,
 } from 'react-icons/si';
+import { Reveal } from '@/components/motion/reveal';
+import { SkillBar } from '@/components/ui/skill-bar';
 
 const TECH_ICONS: { label: string; icon: IconType; color: string }[] = [
   { label: 'JavaScript', icon: SiJavascript, color: '#f7df1e' },
@@ -30,7 +32,10 @@ export function Skills() {
   return (
     <section id='skills'>
       <div className='mx-auto flex max-w-360 flex-col gap-10 px-4 py-10 md:px-10 lg:flex-row lg:items-center lg:gap-[58px] xl:px-32 xl:py-20'>
-        <div className='flex flex-col gap-10 lg:w-[524px] lg:shrink-0'>
+        <Reveal
+          direction='left'
+          className='flex flex-col gap-10 lg:w-[524px] lg:shrink-0'
+        >
           <div className='flex flex-col'>
             <p className='text-lg font-medium text-primary-200 uppercase'>
               Skills
@@ -55,27 +60,16 @@ export function Skills() {
               </li>
             ))}
           </ul>
-        </div>
+        </Reveal>
 
         <ul className='flex flex-1 flex-col gap-4 md:gap-6'>
           {SKILLS.map((skill, index) => (
-            <li key={`${skill.name}-${index}`} className='flex items-center gap-4 md:gap-6'>
-              <div className='relative h-12 flex-1 md:h-16'>
-                <span
-                  aria-hidden='true'
-                  className='absolute inset-x-0 top-1/2 h-px bg-neutral-800'
-                />
-                <div
-                  className='relative flex h-full items-center rounded-xl bg-primary-300 bg-[repeating-linear-gradient(115deg,transparent_0_10px,rgb(145_255_2/0.08)_10px_11px)] px-4 text-sm font-medium text-neutral-25 md:px-6 md:text-base'
-                  style={{ width: `${skill.level}%` }}
-                >
-                  {skill.name}
-                </div>
-              </div>
-              <p className='w-11 text-left text-base font-medium text-neutral-25 md:w-14 md:text-xl'>
-                {skill.level}%
-              </p>
-            </li>
+            <SkillBar
+              key={skill.name}
+              name={skill.name}
+              level={skill.level}
+              index={index}
+            />
           ))}
         </ul>
       </div>

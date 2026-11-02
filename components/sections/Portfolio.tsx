@@ -1,5 +1,10 @@
 import Image from 'next/image';
 import { ExternalLink, Lock } from 'lucide-react';
+import {
+  Reveal,
+  RevealGroup,
+  RevealItem,
+} from '@/components/motion/reveal';
 import { cn } from '@/lib/utils';
 
 type Project = {
@@ -100,7 +105,8 @@ function ProjectCard({ project }: { project: Project }) {
     </>
   );
 
-  const className = 'group flex flex-col gap-4 rounded-2xl';
+  const className =
+    'group flex flex-col gap-4 rounded-2xl transition-transform duration-300 hover:-translate-y-1';
 
   if (!href) return <div className={className}>{content}</div>;
 
@@ -123,22 +129,25 @@ export function Portfolio() {
   return (
     <section id='projects'>
       <div className='mx-auto flex max-w-360 flex-col gap-6 px-4 py-12 md:px-10 xl:gap-16 xl:px-32 xl:py-20'>
-        <div className='flex flex-col items-center text-center'>
+        <Reveal className='flex flex-col items-center text-center'>
           <p className='text-lg font-medium text-primary-200 uppercase'>
             Portfolio
           </p>
           <h2 className='text-3xl leading-9.5 font-extrabold text-neutral-25 uppercase md:text-5xl md:leading-15'>
             Selected work
           </h2>
-        </div>
+        </Reveal>
 
-        <ul className='grid gap-x-4 gap-y-10 md:grid-cols-2 xl:grid-cols-3 xl:gap-y-16'>
+        <RevealGroup
+          as='ul'
+          className='grid gap-x-4 gap-y-10 md:grid-cols-2 xl:grid-cols-3 xl:gap-y-16'
+        >
           {PROJECTS.map((project) => (
-            <li key={project.title}>
+            <RevealItem as='li' key={project.title}>
               <ProjectCard project={project} />
-            </li>
+            </RevealItem>
           ))}
-        </ul>
+        </RevealGroup>
       </div>
     </section>
   );

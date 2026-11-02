@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { User } from 'lucide-react';
+import { Reveal } from '@/components/motion/reveal';
 import { Button } from '@/components/ui/button';
 import { Starburst } from '@/components/ui/starburst';
 import { cn } from '@/lib/utils';
@@ -81,30 +82,36 @@ export function Experience() {
   return (
     <section id='experience'>
       <div className='mx-auto flex max-w-360 flex-col gap-10 px-4 py-10 md:px-10 xl:gap-12 xl:px-30 xl:py-20'>
-        <div className='flex flex-col items-center text-center'>
+        <Reveal className='flex flex-col items-center text-center'>
           <p className='text-lg font-medium text-primary-200 uppercase'>
             Working
           </p>
           <h2 className='text-3xl leading-9.5 font-extrabold text-neutral-25 uppercase md:text-5xl md:leading-15'>
             Why choose me?
           </h2>
-        </div>
+        </Reveal>
 
         <div className='grid gap-10 lg:grid-cols-2 lg:gap-20'>
-          <ComparisonColumn
-            title='Working with me'
-            items={WORKING_WITH_ME}
-            highlight
-          />
-          <ComparisonColumn title='Another talent' items={ANOTHER_TALENT} />
+          <Reveal direction='left'>
+            <ComparisonColumn
+              title='Working with me'
+              items={WORKING_WITH_ME}
+              highlight
+            />
+          </Reveal>
+          <Reveal direction='right' delay={0.15}>
+            <ComparisonColumn title='Another talent' items={ANOTHER_TALENT} />
+          </Reveal>
         </div>
 
-        <Button
-          asChild
-          className='mx-auto h-14 w-full rounded-full text-base font-bold text-neutral-950 shadow-green sm:w-60'
-        >
-          <Link href='#contact'>HIRE ME</Link>
-        </Button>
+        <Reveal>
+          <Button
+            asChild
+            className='mx-auto h-14 w-full rounded-full text-base font-bold text-neutral-950 shadow-green sm:w-60'
+          >
+            <Link href='#contact'>HIRE ME</Link>
+          </Button>
+        </Reveal>
       </div>
     </section>
   );

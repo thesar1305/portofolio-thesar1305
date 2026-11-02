@@ -4,6 +4,7 @@ import { useRef, useState, type FormEvent } from 'react';
 import Image from 'next/image';
 import type { IconType } from 'react-icons';
 import { FaGithub, FaInstagram, FaLinkedinIn } from 'react-icons/fa6';
+import { Reveal } from '@/components/motion/reveal';
 import { Button } from '@/components/ui/button';
 import { SITE, SOCIAL_LINKS } from '@/lib/site';
 
@@ -79,7 +80,10 @@ export function Contact() {
     <section id='contact' className='border-t border-neutral-800'>
       <div className='mx-auto flex max-w-360 flex-col gap-10 px-4 py-10 md:px-10 lg:flex-row lg:gap-[122px] xl:px-32 xl:py-30'>
         {/* Kiri: foto + sosial */}
-        <div className='flex flex-col gap-6 lg:w-[420px] lg:shrink-0'>
+        <Reveal
+          direction='left'
+          className='flex flex-col gap-6 lg:w-[420px] lg:shrink-0'
+        >
           <div className='relative aspect-square w-full overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-900 mask-[linear-gradient(to_bottom,black_55%,transparent)]'>
             <Image
               src='/images/hero-portrait.png'
@@ -119,10 +123,10 @@ export function Contact() {
               })}
             </ul>
           </div>
-        </div>
+        </Reveal>
 
         {/* Kanan: form */}
-        <div className='flex flex-1 flex-col gap-6'>
+        <Reveal direction='right' className='flex flex-1 flex-col gap-6'>
           <div className='flex flex-col'>
             <p className='text-lg font-medium text-primary-200 uppercase'>
               Contact
@@ -198,14 +202,14 @@ export function Contact() {
               {sending ? 'Sending…' : 'Send Message'}
             </Button>
           </form>
-        </div>
+        </Reveal>
       </div>
 
       {/* Modal hasil kirim: <dialog> native (Esc & fokus ditangani browser). */}
       <dialog
         ref={dialogRef}
         aria-labelledby='contact-result-title'
-        className='m-auto w-[calc(100%-32px)] max-w-md rounded-2xl border border-neutral-800 bg-neutral-950 p-8 text-center text-neutral-25 backdrop:bg-black/70 backdrop:backdrop-blur-sm'
+        className='m-auto w-[calc(100%-32px)] max-w-md rounded-2xl open:animate-in open:fade-in-0 open:zoom-in-95 open:duration-300 border border-neutral-800 bg-neutral-950 p-8 text-center text-neutral-25 backdrop:bg-black/70 backdrop:backdrop-blur-sm'
       >
         <div className='flex flex-col items-center gap-4'>
           <Image

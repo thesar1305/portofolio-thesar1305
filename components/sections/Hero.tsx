@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { Reveal } from '@/components/motion/reveal';
 import { Button } from '@/components/ui/button';
 import { Starburst } from '@/components/ui/starburst';
 import { SITE } from '@/lib/site';
@@ -37,34 +38,42 @@ export function Hero() {
       <div className='mx-auto max-w-360 px-4 pt-30 md:px-10 xl:px-32 xl:pt-55'>
         <div className='relative z-10 flex max-w-[807px] flex-col gap-15'>
           <div className='flex flex-col gap-6'>
-            <div className='flex items-center gap-4'>
-              <span
-                aria-hidden='true'
-                className='hidden h-px w-28 bg-neutral-25 md:block'
-              />
-              <p className='text-sm font-medium text-neutral-25 md:text-xl'>
-                Hi, I am {SITE.name} {SITE.role}
-              </p>
-            </div>
+            <Reveal immediate>
+              <div className='flex items-center gap-4'>
+                <span
+                  aria-hidden='true'
+                  className='hidden h-px w-28 bg-neutral-25 md:block'
+                />
+                <p className='text-sm font-medium text-neutral-25 md:text-xl'>
+                  Hi, I am {SITE.name} {SITE.role}
+                </p>
+              </div>
+            </Reveal>
 
+            <Reveal immediate delay={0.1}>
             <h1 className='text-[40px] leading-none font-extrabold text-white uppercase md:text-6xl xl:text-[80px]'>
               Building fast &{' '}
               <span className='text-primary-200'>interactive</span> web
               experiences.
             </h1>
+            </Reveal>
 
-            <p className='max-w-[597px] text-base font-medium text-neutral-400 md:text-xl'>
-              Bridging creativity and functionality to deliver stunning,
-              user-friendly web applications.
-            </p>
+            <Reveal immediate delay={0.2}>
+              <p className='max-w-[597px] text-base font-medium text-neutral-400 md:text-xl'>
+                Bridging creativity and functionality to deliver stunning,
+                user-friendly web applications.
+              </p>
+            </Reveal>
           </div>
 
-          <Button
-            asChild
-            className='h-14 w-full max-w-75 rounded-full text-base font-bold text-neutral-950 shadow-green'
-          >
-            <Link href='#contact'>HIRE ME</Link>
-          </Button>
+          <Reveal immediate delay={0.3}>
+            <Button
+              asChild
+              className='h-14 w-full max-w-75 rounded-full text-base font-bold text-neutral-950 shadow-green'
+            >
+              <Link href='#contact'>HIRE ME</Link>
+            </Button>
+          </Reveal>
         </div>
       </div>
 
@@ -85,7 +94,13 @@ export function Hero() {
             className='absolute inset-y-0 right-0 w-2/5 bg-primary-200/40 xl:w-78.5'
           />
         </div>
-        <RatingCard className='mx-4 mt-6 xl:absolute xl:top-153 xl:left-46.5 xl:mx-0 xl:mt-0 xl:w-79' />
+        <Reveal
+          immediate
+          delay={0.5}
+          className='mx-4 mt-6 xl:absolute xl:top-153 xl:left-46.5 xl:mx-0 xl:mt-0 xl:w-79'
+        >
+          <RatingCard />
+        </Reveal>
       </div>
     </section>
   );

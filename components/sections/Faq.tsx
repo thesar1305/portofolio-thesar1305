@@ -1,3 +1,4 @@
+import { Reveal } from '@/components/motion/reveal';
 import { Starburst } from '@/components/ui/starburst';
 
 const FAQS = [
@@ -56,16 +57,16 @@ export function Faq() {
   return (
     <section id='faq'>
       <div className='mx-auto flex max-w-360 flex-col gap-8 px-4 py-12 md:px-10 xl:gap-16 xl:px-32 xl:py-20'>
-        <div className='flex flex-col items-center text-center'>
+        <Reveal className='flex flex-col items-center text-center'>
           <p className='text-lg font-medium text-primary-200 uppercase'>FAQ</p>
           <h2 className='text-3xl leading-9.5 font-extrabold text-neutral-25 uppercase md:text-5xl md:leading-15'>
             Frequently asked questions
           </h2>
-        </div>
+        </Reveal>
 
         <div className='divide-y divide-neutral-800'>
           {rows.map((row) => (
-            <div key={row[0].question} className='grid md:grid-cols-2'>
+            <Reveal key={row[0].question} className='grid md:grid-cols-2'>
               {row.map((item, index) => (
                 <div
                   key={item.question}
@@ -78,7 +79,7 @@ export function Faq() {
                   <FaqItem question={item.question} answer={item.answer} />
                 </div>
               ))}
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

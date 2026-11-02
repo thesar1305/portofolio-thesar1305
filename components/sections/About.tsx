@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { Reveal } from '@/components/motion/reveal';
 import { cn } from '@/lib/utils';
 
 // Posisi diambil dari Figma: mobile = frame 393px, desktop = frame 1440px.
@@ -34,8 +35,12 @@ function Collage({ className }: { className?: string }) {
         className
       )}
     >
-      {ABOUT_IMAGES.map((image) => (
-        <div key={image.src} className={cn('absolute', image.className)}>
+      {ABOUT_IMAGES.map((image, index) => (
+        <Reveal
+          key={image.src}
+          delay={index * 0.15}
+          className={cn('absolute', image.className)}
+        >
           <Image
             src={image.src}
             alt={image.alt}
@@ -43,7 +48,7 @@ function Collage({ className }: { className?: string }) {
             sizes={image.sizes}
             className='object-cover'
           />
-        </div>
+        </Reveal>
       ))}
     </div>
   );
@@ -66,7 +71,7 @@ export function About() {
           <span className='size-8.5 xl:size-12' />
         </div>
 
-        <div className='relative z-10 flex flex-col items-center gap-5 xl:gap-16'>
+        <Reveal className='relative z-10 flex flex-col items-center gap-5 xl:gap-16'>
           <div className='flex flex-col items-center'>
             <p className='text-lg font-medium text-primary-200 uppercase'>
               About me
@@ -88,7 +93,7 @@ export function About() {
             designs into responsive, high-performance websites and business
             tools that fit the way real teams work.
           </p>
-        </div>
+        </Reveal>
 
         <Collage />
       </div>

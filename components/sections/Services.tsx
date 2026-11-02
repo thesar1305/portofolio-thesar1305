@@ -1,4 +1,9 @@
 import { Monitor } from 'lucide-react';
+import {
+  Reveal,
+  RevealGroup,
+  RevealItem,
+} from '@/components/motion/reveal';
 
 const SERVICES = [
   {
@@ -22,7 +27,7 @@ export function Services() {
   return (
     <section id='services'>
       <div className='mx-auto flex max-w-360 flex-col gap-12 px-4 py-16 md:px-10 md:py-24 xl:gap-16 xl:px-30 xl:py-30'>
-        <div className='flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between'>
+        <Reveal className='flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between'>
           <div className='flex flex-col'>
             <p className='text-lg font-medium text-primary-200 uppercase'>
               Service
@@ -35,11 +40,11 @@ export function Services() {
             Creating modern, intuitive, and visually consistent web experiences
             that align with industry trends and user expectations.
           </p>
-        </div>
+        </Reveal>
 
-        <ul className='grid gap-10 lg:grid-cols-3'>
+        <RevealGroup as='ul' className='grid gap-10 lg:grid-cols-3'>
           {SERVICES.map((service, index) => (
-            <li key={service.title} className='flex flex-col gap-6'>
+            <RevealItem as='li' key={service.title} className='flex flex-col gap-6'>
               <p className='text-xl font-semibold text-neutral-400'>
                 {String(index + 1).padStart(2, '0')}
               </p>
@@ -51,9 +56,9 @@ export function Services() {
               <p className='text-base text-neutral-400 md:text-xl'>
                 {service.description}
               </p>
-            </li>
+            </RevealItem>
           ))}
-        </ul>
+        </RevealGroup>
       </div>
     </section>
   );

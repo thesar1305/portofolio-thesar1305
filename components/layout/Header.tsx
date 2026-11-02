@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { AnimatePresence, motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { NAV_LINKS, SITE } from '@/lib/site';
 import { cn } from '@/lib/utils';
@@ -82,10 +83,16 @@ export function Header() {
         </div>
       </header>
 
-      {isOpen && (
-        <nav
+      <AnimatePresence>
+        {isOpen && (
+        <motion.nav
+          key='mobile-menu'
           id='mobile-menu'
           aria-label='Mobile'
+          initial={{ opacity: 0, y: -16 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -16 }}
+          transition={{ duration: 0.25, ease: 'easeOut' }}
           className='fixed inset-x-0 top-20 bottom-0 z-40 bg-black p-6 lg:hidden'
         >
           <ul className='flex flex-col gap-8'>
@@ -101,8 +108,9 @@ export function Header() {
               </li>
             ))}
           </ul>
-        </nav>
-      )}
+        </motion.nav>
+        )}
+      </AnimatePresence>
     </>
   );
 }
