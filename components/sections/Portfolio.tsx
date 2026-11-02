@@ -39,7 +39,7 @@ const PROJECTS: Project[] = [
     title: 'Movie Explorer',
     description:
       'A movie explorer app built with Vite that browses and searches movies from the TMDB API.',
-    href: 'https://week-9-movie-explorer-app-thesar1305.vercel.app',
+    href: 'https://week-9-movie-explorer-app-thesar130.vercel.app',
   },
 ];
 
