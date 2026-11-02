@@ -2,45 +2,26 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Starburst } from '@/components/ui/starburst';
 import { cn } from '@/lib/utils';
 
 const WORKING_WITH_ME = [
-  'React Expert',
-  'Precise Website Implementation',
-  'TypeScript Proficiency',
-  'Clean, Maintainable Code',
+  'Precise Figma-to-Code Implementation',
   'Responsive Website Development',
-  'UI Design Proficiency (Figma)',
+  'TypeScript Fundamentals',
+  'Clean, Maintainable Code',
+  'Understands Business Operations',
+  'Clear Documentation & Communication',
 ] as const;
 
 const ANOTHER_TALENT = [
-  'Basic React Knowledge',
   'Inconsistent Design Translation',
+  'Inconsistent Responsiveness',
   'Little to No TypeScript Knowledge',
   'Unstructured Code',
-  'Inconsistent Responsiveness',
-  'No Design Skills',
+  'Builds Without Understanding the Business',
+  'Little to No Documentation',
 ] as const;
-
-// Bintang 12 sudut (starburst) sebagai SVG inline, jadi tidak perlu file aset.
-const STARBURST_POINTS = Array.from({ length: 24 }, (_, i) => {
-  const radius = i % 2 === 0 ? 12 : 7.5;
-  const angle = (Math.PI / 12) * i - Math.PI / 2;
-  return `${(12 + radius * Math.cos(angle)).toFixed(2)},${(12 + radius * Math.sin(angle)).toFixed(2)}`;
-}).join(' ');
-
-function Starburst({ className }: { className?: string }) {
-  return (
-    <svg
-      aria-hidden='true'
-      viewBox='0 0 24 24'
-      fill='currentColor'
-      className={cn('size-6 shrink-0', className)}
-    >
-      <polygon points={STARBURST_POINTS} />
-    </svg>
-  );
-}
 
 function ComparisonColumn({
   title,

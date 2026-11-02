@@ -1,11 +1,11 @@
 import { About } from '@/components/sections/About';
+import { Contact } from '@/components/sections/Contact';
 import { Experience } from '@/components/sections/Experience';
+import { Faq } from '@/components/sections/Faq';
 import { Hero } from '@/components/sections/Hero';
+import { Portfolio } from '@/components/sections/Portfolio';
 import { Services } from '@/components/sections/Services';
 import { Skills } from '@/components/sections/Skills';
-import { Work } from '@/components/sections/Work';
-
-const PLACEHOLDERS = ['projects', 'faq', 'contact'];
 
 export default function Home() {
   return (
@@ -15,16 +15,9 @@ export default function Home() {
       <About />
       <Skills />
       <Experience />
-      <Work />
-      {PLACEHOLDERS.map((id) => (
-        <section
-          key={id}
-          id={id}
-          className='flex min-h-screen items-center justify-center border-b border-neutral-800 pt-20 text-3xl font-extrabold capitalize'
-        >
-          {id}
-        </section>
-      ))}
+      <Portfolio />
+      <Faq />
+      <Contact />
     </>
   );
 }

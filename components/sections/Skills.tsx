@@ -1,12 +1,11 @@
 import type { IconType } from 'react-icons';
 import {
   SiCss,
-  SiDocker,
-  SiExpress,
   SiHtml5,
   SiJavascript,
-  SiMongodb,
+  SiNextdotjs,
   SiReact,
+  SiTailwindcss,
   SiTypescript,
 } from 'react-icons/si';
 
@@ -14,20 +13,16 @@ const TECH_ICONS: { label: string; icon: IconType; color: string }[] = [
   { label: 'JavaScript', icon: SiJavascript, color: '#f7df1e' },
   { label: 'CSS3', icon: SiCss, color: '#1572b6' },
   { label: 'HTML5', icon: SiHtml5, color: '#e34f26' },
-  { label: 'Express', icon: SiExpress, color: '#fdfdfd' },
-  { label: 'MongoDB', icon: SiMongodb, color: '#47a248' },
   { label: 'React', icon: SiReact, color: '#61dafb' },
+  { label: 'Next.js', icon: SiNextdotjs, color: '#fdfdfd' },
   { label: 'TypeScript', icon: SiTypescript, color: '#3178c6' },
-  { label: 'Docker', icon: SiDocker, color: '#2496ed' },
+  { label: 'Tailwind CSS', icon: SiTailwindcss, color: '#38bdf8' },
 ];
 
-// Data persis seperti di Figma (ganti sesuai skill aslimu).
 const SKILLS = [
   { name: 'React JS', level: 50 },
-  { name: 'HTML', level: 80 },
-  { name: 'Tailwind CSS', level: 90 },
   { name: 'HTML', level: 100 },
-  { name: 'Docker', level: 70 },
+  { name: 'Tailwind CSS', level: 90 },
   { name: 'Javascript', level: 90 },
 ] as const;
 

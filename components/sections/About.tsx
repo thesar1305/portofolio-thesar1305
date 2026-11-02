@@ -82,10 +82,11 @@ export function About() {
           </div>
 
           <p className='max-w-[996px] text-base font-medium text-neutral-400 md:text-xl'>
-            I love turning designs into interactive, high-performance websites.
-            With a keen eye for detail and a deep understanding of frontend
-            technologies, I create smooth and visually appealing user
-            experiences.
+            I&apos;m a frontend developer with a background as an HR Manager at a
+            startup, where I work with operations, data, and administrative
+            systems every day. That experience shapes how I build: I turn
+            designs into responsive, high-performance websites and business
+            tools that fit the way real teams work.
           </p>
         </div>
 

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Starburst } from '@/components/ui/starburst';
 import { SITE } from '@/lib/site';
 import { cn } from '@/lib/utils';
 
@@ -14,19 +14,18 @@ function RatingCard({ className }: { className?: string }) {
       )}
     >
       <p className='text-5xl leading-14 font-bold tracking-[-0.02em] text-neutral-25'>
-        5.0
+        4
       </p>
       <div
-        role='img'
-        aria-label='Rated 5 out of 5 stars'
-        className='flex gap-1.5 text-amber-400'
+        aria-hidden='true'
+        className='flex gap-1.5 text-primary-200'
       >
         {Array.from({ length: 5 }, (_, i) => (
-          <Star key={i} aria-hidden='true' className='size-6 fill-current' />
+          <Starburst key={i} />
         ))}
       </div>
       <p className='text-xl font-semibold text-neutral-25'>
-        Many Client Trust with me
+        Live Projects
       </p>
     </div>
   );
