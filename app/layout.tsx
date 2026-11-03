@@ -3,6 +3,7 @@ import { Red_Hat_Display } from 'next/font/google';
 import { Footer } from '@/components/layout/Footer';
 import { Header } from '@/components/layout/Header';
 import { MotionProvider } from '@/components/motion/reveal';
+import { SITE } from '@/lib/site';
 import './globals.css';
 
 const redHatDisplay = Red_Hat_Display({
@@ -10,10 +11,25 @@ const redHatDisplay = Red_Hat_Display({
   subsets: ['latin'],
 });
 
+const TITLE = `${SITE.name} | ${SITE.role}`;
+
 export const metadata: Metadata = {
-  title: 'Thesar Ramadhani | Portfolio',
-  description:
-    'Personal portfolio of Thesar Ramadhani, built with Next.js, Tailwind CSS, and Framer Motion.',
+  metadataBase: new URL(SITE.url),
+  title: { default: TITLE, template: `%s | ${SITE.name}` },
+  description: SITE.description,
+  openGraph: {
+    title: TITLE,
+    description: SITE.description,
+    url: '/',
+    siteName: SITE.name,
+    type: 'website',
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: TITLE,
+    description: SITE.description,
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<'/'>) {
