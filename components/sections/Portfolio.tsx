@@ -14,6 +14,8 @@ type Project = {
   href?: string;
   /** Path gambar di /public, mis. '/images/projects/sociality.png'. Kosong = tampil placeholder. */
   image?: string;
+  /** Deskripsi gambar untuk pembaca layar. Kosong = 'Preview of <judul>'. */
+  imageAlt?: string;
   /** Aplikasi internal: halaman publik hanya berisi form login. */
   loginRequired?: boolean;
 };
@@ -25,12 +27,18 @@ const PROJECTS: Project[] = [
     description:
       'Frontend of a social media app: feed, posts, comments, likes, saved posts, profiles, and follow, built with Next.js and a REST API.',
     href: 'https://sociality-frontend-mvp-thesar1305.vercel.app',
+    image: '/images/projects/sociality.png',
+    imageAlt:
+      'Screens of the Sociality app: login, sign up, home feed, comments, new post, and profile',
   },
   {
     title: 'SIMANKAR — HR & Asset Management',
     description:
       'Internal HR and asset management system that replaces Excel workflows for a multi-site mining contractor, used concurrently by site admins. Solo-built with React, PHP/MySQL, and Firebase Authentication, with Excel import/export.',
     href: 'https://ajboffice.my.id/',
+    image: '/images/projects/simankar.png',
+    imageAlt:
+      'Screens of SIMANKAR: login, module selection, user management, bulk Excel upload, employee transfer history, and leave tracking',
     loginRequired: true,
   },
   {
@@ -38,6 +46,9 @@ const PROJECTS: Project[] = [
     description:
       'Business management app for an egg distribution company: daily sales with printable receipts, customers, stock, dynamic pricing, and income, expenditure, and gross profit reports. Built with PHP, MySQL, and Bootstrap 5.',
     href: 'https://abatiimadani.xyz/aplikasi_telur/',
+    image: '/images/projects/aplikasi-telur.png',
+    imageAlt:
+      'Screens of Aplikasi Telur: login, dashboard, sales list, egg prices, and financial reports',
     loginRequired: true,
   },
   {
@@ -45,6 +56,9 @@ const PROJECTS: Project[] = [
     description:
       'A movie explorer app built with Vite that browses and searches movies from the TMDB API.',
     href: 'https://week-9-movie-explorer-app-thesar130.vercel.app',
+    image: '/images/projects/movie-explorer.png',
+    imageAlt:
+      'Screens of Movie Explorer: home with trending movies, movie detail, new releases, and favorites',
   },
 ];
 
@@ -57,7 +71,7 @@ function ProjectCard({ project }: { project: Project }) {
         {project.image ? (
           <Image
             src={project.image}
-            alt={`Preview of ${project.title}`}
+            alt={project.imageAlt ?? `Preview of ${project.title}`}
             fill
             sizes='(min-width: 1280px) 383px, (min-width: 768px) 50vw, 100vw'
             className='object-cover transition-transform duration-500 group-hover:scale-105'
