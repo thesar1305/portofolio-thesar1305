@@ -1,6 +1,9 @@
 export const SITE = {
   name: 'Thesar Ramadhani',
   role: 'Frontend Developer',
+  url: 'https://portofolio-thesar1305.vercel.app',
+  description:
+    'Frontend developer building fast, responsive, and interactive web experiences with React, Next.js, and TypeScript.',
 } as const;
 
 export const SOCIAL_LINKS = [

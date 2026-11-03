@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Thesar Ramadhani — Portfolio
 
-## Getting Started
+A responsive, animated personal portfolio built from the **Portfolio 8 - REP** Figma design as part of the WPH Bootcamp *Slicing Portfolio Challenge*.
 
-First, run the development server:
+**Live demo:** https://portofolio-thesar1305.vercel.app
+
+## Features
+
+- Pixel-faithful slicing of the Figma design for desktop (1440 px) and mobile (393 px), with tuned tablet layouts in between.
+- Sections: Hero, Services, About, Skills, Why Choose Me, Selected Work, FAQ, and Contact.
+- Smooth animations with Framer Motion: staggered hero entrance, scroll-reveal, animated skill bars, hover effects, mobile menu transitions. Animations respect `prefers-reduced-motion`.
+- Working contact form: a Next.js API route validates the input and sends it by email through [Resend](https://resend.com), with a honeypot field against bots and success/failure dialogs.
+- Optimized images with `next/image`, per-page metadata, Open Graph preview image, and a custom favicon.
+
+## Tech stack
+
+- [Next.js](https://nextjs.org) 16 (App Router, Turbopack) and React 19
+- TypeScript
+- [Tailwind CSS](https://tailwindcss.com) v4 with design tokens taken from Figma
+- [shadcn/ui](https://ui.shadcn.com) (Radix) and [lucide-react](https://lucide.dev) / [react-icons](https://react-icons.github.io/react-icons/)
+- [Framer Motion](https://www.framer.com/motion/)
+- [Resend](https://resend.com) for email delivery
+- Deployed on [Vercel](https://vercel.com)
+
+## Getting started
 
 ```bash
+git clone https://github.com/thesar1305/portofolio-thesar1305.git
+cd portofolio-thesar1305
+git checkout portofolio
+npm install
+cp .env.example .env.local   # then fill in the values below
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Environment variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Variable | Required | Description |
+| --- | --- | --- |
+| `RESEND_API_KEY` | yes | API key from your Resend account. |
+| `CONTACT_TO_EMAIL` | yes | Inbox that receives the contact form messages. |
+| `CONTACT_FROM_EMAIL` | no | Verified sender address. Defaults to Resend's `onboarding@resend.dev`, which can only deliver to the email of the Resend account owner. |
 
-## Learn More
+These are server-side secrets. Never prefix them with `NEXT_PUBLIC_` and never commit `.env.local`.
 
-To learn more about Next.js, take a look at the following resources:
+### Scripts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the development server. |
+| `npm run build` | Create a production build. |
+| `npm run start` | Run the production build. |
+| `npm run lint` | Lint the code with ESLint. |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Project structure
 
-## Deploy on Vercel
+```text
+app/
+  api/contact/route.ts   # Contact form endpoint (validation + Resend)
+  layout.tsx             # Fonts, metadata, header/footer
+  page.tsx               # Page composition
+components/
+  layout/                # Header, Footer
+  motion/                # Reveal helpers (Framer Motion)
+  sections/              # One file per page section
+  ui/                    # shadcn/ui primitives and small shared pieces
+lib/                     # Site constants and utilities
+public/images/           # Optimized static assets and project thumbnails
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Featured projects
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Project | Stack | Access |
+| --- | --- | --- |
+| Sociality | Next.js, REST API | Public sign-up |
+| SIMANKAR | React, PHP/MySQL, Firebase Auth | Login required (internal HR and asset system) |
+| Aplikasi Telur | PHP, MySQL, Bootstrap 5 | Login required (internal business app) |
+| Movie Explorer | React, Vite, TMDB API | Public |
+
+Thumbnails of internal systems use masked or dummy data.
+
+## Credits
+
+Design: *Portfolio 8 - REP* (Figma), provided by the WPH Bootcamp. Implementation by Thesar Ramadhani.
